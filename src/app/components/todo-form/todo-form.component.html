@@ -1,0 +1,40 @@
+<form [formGroup]="todoForm" (ngSubmit)="createTodo()">
+  <h5>Create new ToDo</h5>
+  <div class="form-group">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" name="description" class="form-control" formControlName="description">
+    <div *ngIf="todoForm.get('description').hasError('required')" class="alert alert-danger">
+      Please enter a description!
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="priority" class="form-label">Priority</label>
+    <div class="radio">
+      <label>
+        <input type="radio" name="priority" id="high" value="high" formControlName="priority">
+        High
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="priority" id="medium" value="medium" formControlName="priority">
+        Medium
+      </label>
+    </div>
+    <div class="radio">
+      <label>
+        <input type="radio" name="priority" id="low" value="low" checked formControlName="priority">
+        Low
+      </label>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label for="duedate" class="form-label">Due</label>
+    <input type="text" name="duedate" class="form-control" formControlName="dueDate">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+<br>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToDo } from './to-do';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'day32-workshop';
+
+  todoList: any[] = [];
+
+  receiveFormInput(event: ToDo) {
+    console.log(event);
+    this.todoList.push(event);
+  }
 }

@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
+import { ToDo } from 'src/app/to-do';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,6 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class TodoListComponent {
 
-  @Input() todoList: any[] = [];
-
+  @Input() todoList: ToDo[] = [];
 }

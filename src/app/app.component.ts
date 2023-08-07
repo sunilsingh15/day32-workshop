@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ToDo } from './to-do';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { ToDo } from './to-do';
 export class AppComponent {
   title = 'day32-workshop';
 
-  todoList: any[] = [];
+  todoList: ToDo[] = [];
 
   receiveFormInput(event: ToDo) {
     console.log(event);

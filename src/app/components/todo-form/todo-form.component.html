@@ -1,43 +1,28 @@
 <form [formGroup]="todoForm" (ngSubmit)="createTodo()">
-  <h5>Create new ToDo</h5>
-  <div class="form-group">
-    <label for="description" class="form-label">Description</label>
-    <input type="text" name="description" class="form-control" formControlName="description">
-    <div *ngIf="todoForm.get('description').hasError('required')" class="alert alert-danger">
-      Please enter a description!
-    </div>
-    <div *ngIf="todoForm.get('description').hasError('minLength')" class="alert alert-danger">
-      Minimum of 5 characters required!
-    </div>
-  </div>
-  <br>
-  <div class="form-group">
-    <label for="priority" class="form-label">Priority</label>
-    <div class="radio">
-      <label>
-        <input type="radio" name="priority" id="high" value="high" formControlName="priority">
-        High
-      </label>
-    </div>
-    <div class="radio">
-      <label>
-        <input type="radio" name="priority" id="medium" value="medium" formControlName="priority">
-        Medium
-      </label>
-    </div>
-    <div class="radio">
-      <label>
-        <input type="radio" name="priority" id="low" value="low" checked formControlName="priority">
-        Low
-      </label>
-    </div>
-  </div>
-  <br>
-  <div class="form-group">
-    <label for="duedate" class="form-label">Due</label>
-    <input type="date" name="duedate" class="form-control" formControlName="dueDate">
-  </div>
-  <br>
-  <button type="submit" class="btn btn-primary">Add</button>
+  <h4>Create new ToDo</h4>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description" />
+  </mat-form-field>
+  <br />
+  <mat-radio-group formControlName="priority">
+    <mat-label>Priority</mat-label>
+    <br />
+    <mat-radio-button value="high">High</mat-radio-button>
+    <mat-radio-button value="medium">Medium</mat-radio-button>
+    <mat-radio-button value="low">Low</mat-radio-button>
+  </mat-radio-group>
+  <br />
+  <br />
+  <mat-form-field>
+    <mat-label>Due date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dueDate" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br />
+  <br />
+  <button mat-raised-button color="primary">Add</button>
 </form>
-<br>
+<br />

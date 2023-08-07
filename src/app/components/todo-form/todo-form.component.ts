@@ -19,7 +19,7 @@ export class TodoFormComponent implements OnInit {
 
   initializeForm() {
     this.todoForm = this.fb.group({
-      description: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      description: new FormControl<string>('', [Validators.required, Validators.minLength(5)]),
       priority: new FormControl('low'),
       dueDate: new FormControl('')
     })

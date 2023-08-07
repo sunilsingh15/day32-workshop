@@ -6,6 +6,9 @@
     <div *ngIf="todoForm.get('description').hasError('required')" class="alert alert-danger">
       Please enter a description!
     </div>
+    <div *ngIf="todoForm.get('description').hasError('minLength')" class="alert alert-danger">
+      Minimum of 5 characters required!
+    </div>
   </div>
   <br>
   <div class="form-group">
@@ -32,7 +35,7 @@
   <br>
   <div class="form-group">
     <label for="duedate" class="form-label">Due</label>
-    <input type="text" name="duedate" class="form-control" formControlName="dueDate">
+    <input type="date" name="duedate" class="form-control" formControlName="dueDate">
   </div>
   <br>
   <button type="submit" class="btn btn-primary">Add</button>
